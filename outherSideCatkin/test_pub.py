@@ -56,7 +56,7 @@ if __name__ == '__main__':
     def job():
         my_node.start()
     
-    t = threading.Thread(target = job)
+    t = threading.Thread(target = job,daemon = True)
 
     t.start()
 
