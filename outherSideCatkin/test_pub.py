@@ -13,10 +13,6 @@ class VESC_Node(object):
         # Rate
         self.loop_rate = rospy.Rate(60)
 
-        # Node is subscribing to the topic
-        #self.rgb_sub = message_filters.Subscriber('rgb/image_raw', Image)
-        #self.depth_sub = message_filters.Subscriber('depth_to_rgb/image_raw', Image)
-
         # Node is publishing to the topic
         self.vesc1_pub = rospy.Publisher('vesc1_speed', Float64, queue_size=10)
         self.vesc2_pub = rospy.Publisher('vesc2_speed', Float64, queue_size=10)
@@ -28,14 +24,6 @@ class VESC_Node(object):
         
 
     def start(self):
-
-        # Tells rospy the name of the node.
-        # Anonymous = True makes sure the node has a unique name. Random
-        # numbers are added to the end of the name. 
-
-        #Only for multiple subscribers
-        #ts = message_filters.ApproximateTimeSynchronizer([self.vesc1_pub, self.vesc2_pub], 10, 0.01)
-        #ts.registerCallback(self.callback)
 
         # spin() simply keeps python from exiting until this node is stopped
         #rospy.spin()
